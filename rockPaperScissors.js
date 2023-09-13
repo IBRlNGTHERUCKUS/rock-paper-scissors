@@ -1,7 +1,10 @@
-function getUserChoice(){
-    let userChoice = prompt("Enter Rock, Paper, or Scissors:", "Rock");
-    return userChoice.toUpperCase();
+const userCards = document.querySelectorAll('.userCard');
+for (let card of userCards) {
+    card.addEventListener('click', selectCard);
 }
+
+
+
 
 function getBotChoice() {
     let random = Math.floor((Math.random() * 3)) + 1;
@@ -19,21 +22,20 @@ function getBotChoice() {
 }
 
 // Returns winner of the round
-function playRound() {
-    let userChoice = getUserChoice();
+function playRound(selectedCard) {
     let botChoice = getBotChoice();
  
-    console.log(`User Choice: ${userChoice}`);
+    console.log(`User Choice: ${selectedCard}`);
     console.log(`Bot Choice: ${botChoice}`);
 
-    if (userChoice == botChoice){
+    if (selectedCard == botChoice){
         console.log("Tie!");
         return "tie";
     }
     else if (
-        (userChoice == "ROCK" && botChoice === "SCISSORS") || 
-        (userChoice == "PAPER" && botChoice === "ROCK") ||
-        (userChoice == "SCISSORS" && botChoice === "PAPER")
+        (selectedCard == "ROCK" && botChoice === "SCISSORS") || 
+        (selectedCard == "PAPER" && botChoice === "ROCK") ||
+        (selectedCard == "SCISSORS" && botChoice === "PAPER")
         ) {
             console.log("Congrats User!!!");
             return "user";
