@@ -3,4 +3,13 @@
     width: 2.5in;
 }
 
+.cardContainer {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+#flavorText {
+    text-align: center;
+}
 
