@@ -2,6 +2,11 @@
     height: 3.5in;
     width: 2.5in;
 }
+.bell img {
+    height: .5in;
+    width: .5in;
+    display:inline-block
+}
 
 .cardContainer {
     display: flex;
