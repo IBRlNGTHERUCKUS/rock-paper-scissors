@@ -1,8 +1,10 @@
 const userCards = document.querySelectorAll('.userCard img');
+const bell = document.querySelector('.bell');
+const flavorText = document.querySelector('#flavorText');
 for (let card of userCards) {
     card.addEventListener('click', selectCard);
 }
-
+bell.addEventListener('click', handleBellClick)
 let selectedCard = null;
 
 function selectCard(e) {
@@ -18,8 +20,14 @@ function selectCard(e) {
     selectedCard = e.target;
     selectedCard.classList.toggle('selected');
 }
-
-
+function handleBellClick(e) {
+    if (selectedCard) {
+        playRound(selectedCard);
+    }
+    else {
+        flavorText.textContent = 'You must choose...';
+    }
+}
 
 function getBotChoice() {
     let random = Math.floor((Math.random() * 3)) + 1;
