@@ -29,44 +29,41 @@ function handleBellClick(e) {
     }
 }
 
-function getBotChoice() {
+function getBotCard() {
     let random = Math.floor((Math.random() * 3)) + 1;
     switch (random) {
         case 1: 
-            return "ROCK";
+            return "rock";
             break;
         case 2:
-            return "PAPER";
+            return "paper";
             break;
         case 3:
-            return "SCISSORS";
+            return "scissors";
             break;
     }
 }
 
 // Returns winner of the round
-function playRound(selectedCard) {
-    let botChoice = getBotChoice();
- 
-    console.log(`User Choice: ${selectedCard}`);
-    console.log(`Bot Choice: ${botChoice}`);
-
-    if (selectedCard == botChoice){
-        console.log("Tie!");
-        return "tie";
+function playRound() {
+    let botCard = getBotCard();
+    let userCard = selectedCard.id;
+    flavorText.innerHTML = `Bot Card: ${botCard}<br>User Card : ${userCard}`;
+    if (userCard == botCard){
+        flavorText.innerHTML += '<br>Tie!';
     }
     else if (
-        (selectedCard == "ROCK" && botChoice === "SCISSORS") || 
-        (selectedCard == "PAPER" && botChoice === "ROCK") ||
-        (selectedCard == "SCISSORS" && botChoice === "PAPER")
+        (userCard == "rock" && botCard === "scissors") || 
+        (userCard == "paper" && botCard === "rock") ||
+        (userCard == "scissors" && botCard === "paper")
         ) {
-            console.log("Congrats User!!!");
-            return "user";
+            flavorText.innerHTML += '<br>You Win.';
         }
     else {
-        console.log("You suck!!!");
-        return "bot";
+        flavorText.innerHTML += '<br>You Lose.';
     }
+    selectedCard.classList.remove('selected');
+    selectedCard = null
 }
 
 function game(rounds) {
