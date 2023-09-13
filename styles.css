@@ -1,10 +1,15 @@
+body {
+    background-image: url(./images/background.jpg);
+    color: white;
+}
+
 .card img {
     height: 40vh;
+    border-radius: 7px;
 }
 .bell img {
-    height: .5in;
-    width: .5in;
-    display:inline-block;  
+    height: 1in;
+    
 }
 
 .cardContainer {
@@ -14,11 +19,18 @@
     gap: 30px;
 }
 
+.middle {
+    display:flex;
+}
+
 #flavorText {
     text-align: center;
+    margin-right: 50vw;
+    margin-left: auto;
+    align-self: center
 }
 
 .selected {
     transform: scale(1.07);
-    border: 3px solid red;
+    border: 2px solid red;
 }

@@ -1,6 +1,7 @@
 const userCards = document.querySelectorAll('.userCard img');
 const bell = document.querySelector('.bell');
 const flavorText = document.querySelector('#flavorText');
+const botCardImage = document.querySelector('.card.botCard img');
 for (let card of userCards) {
     card.addEventListener('click', selectCard);
 }
@@ -28,6 +29,9 @@ function handleBellClick(e) {
         flavorText.textContent = 'You must choose...';
     }
 }
+function flipCard(cardType = 'cardBack') {
+    botCardImage.src = `./images/${cardType}.png`;
+}
 
 function getBotCard() {
     let random = Math.floor((Math.random() * 3)) + 1;
@@ -44,10 +48,11 @@ function getBotCard() {
     }
 }
 
-// Returns winner of the round
 function playRound() {
     let botCard = getBotCard();
+    flipCard(botCard);
     let userCard = selectedCard.id;
+
     flavorText.innerHTML = `Bot Card: ${botCard}<br>User Card : ${userCard}`;
     if (userCard == botCard){
         flavorText.innerHTML += '<br>Tie!';
@@ -64,5 +69,7 @@ function playRound() {
     }
     // Unselect the card after each round
     selectedCard.classList.remove('selected');
-    selectedCard = null
+    selectedCard = null;
+    setTimeout(flipCard, 5000);
+    
 }
