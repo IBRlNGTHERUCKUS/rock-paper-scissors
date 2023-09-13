@@ -1,8 +1,23 @@
-const userCards = document.querySelectorAll('.userCard');
+const userCards = document.querySelectorAll('.userCard img');
 for (let card of userCards) {
     card.addEventListener('click', selectCard);
 }
 
+let selectedCard = null;
+
+function selectCard(e) {
+    // If another card is already selected, unselect it
+    if (selectedCard) {
+        selectedCard.classList.toggle('selected')
+    }
+    // If the same card is already selected, unselect it and leave function
+    if (selectedCard == e.target) {
+        selectedCard = null;
+        return;
+    }
+    selectedCard = e.target;
+    selectedCard.classList.toggle('selected');
+}
 
 
 
