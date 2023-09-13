@@ -1,16 +1,16 @@
 .card img {
-    height: 3.5in;
-    width: 2.5in;
+    height: 40vh;
 }
 .bell img {
     height: .5in;
     width: .5in;
-    display:inline-block
+    display:inline-block;  
 }
 
 .cardContainer {
     display: flex;
     justify-content: space-around;
+    padding: 24px;
     gap: 30px;
 }
 
@@ -19,5 +19,6 @@
 }
 
 .selected {
-    transform: scale(1.5);
+    transform: scale(1.07);
+    border: 3px solid red;
 }
