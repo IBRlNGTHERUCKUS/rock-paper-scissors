@@ -1,12 +1,13 @@
-const userCards = document.querySelectorAll('.userCard img');
+const userCards = document.querySelectorAll('.userCard');
 const bell = document.querySelector('.bell');
 const flavorText = document.querySelector('#flavorText');
-const botCardImage = document.querySelector('.card.botCard img');
+const botCardImage = document.querySelector('.botCard');
 for (let card of userCards) {
     card.addEventListener('click', selectCard);
 }
 bell.addEventListener('click', handleBellClick)
 let selectedCard = null;
+const CARDFLIPDELAY = 4000 //ms
 
 function selectCard(e) {
     // If another card is already selected, unselect it
@@ -32,7 +33,6 @@ function handleBellClick(e) {
 function flipCard(cardType = 'cardBack') {
     botCardImage.src = `./images/${cardType}.png`;
 }
-
 function getBotCard() {
     let random = Math.floor((Math.random() * 3)) + 1;
     switch (random) {
@@ -58,9 +58,9 @@ function playRound() {
         flavorText.innerHTML += '<br>Tie!';
     }
     else if (
-        (userCard == "rock" && botCard === "scissors") || 
-        (userCard == "paper" && botCard === "rock") ||
-        (userCard == "scissors" && botCard === "paper")
+        (userCard === "rock" && botCard === "scissors") || 
+        (userCard === "paper" && botCard === "rock") ||
+        (userCard === "scissors" && botCard === "paper")
         ) {
             flavorText.innerHTML += '<br>You Win.';
         }
@@ -70,6 +70,6 @@ function playRound() {
     // Unselect the card after each round
     selectedCard.classList.remove('selected');
     selectedCard = null;
-    setTimeout(flipCard, 5000);
-    
+    setTimeout(flipCard, 3000);
+
 }
