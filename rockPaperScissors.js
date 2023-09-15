@@ -12,20 +12,35 @@ for (let card of userCards) {
     card.addEventListener('click', selectCard);
 }
 bell.addEventListener('click', handleBellClick)
+botCardImage.addEventListener('click', ()=>typeWriter('No Peeking...'));
 let selectedCard = null;
 const ROUNDTIME = 3000 //ms
-const TYPEWRITERSPEED = 120; //ms
+const TYPEWRITERSPEED = 105; //ms
+let typingFlag = false
 
-function typeWriter(txt, speed = TYPEWRITERSPEED, i = 0) { //speed in ms
-    if (i == 0){
-        flavorText.textContent = '';
+function typeWriter(txt, speed = TYPEWRITERSPEED) {
+    // Prevents being called multiple times leading to overlapping text
+    if (typingFlag == true){
+        return;
     }
-    if (i < txt.length){
-        flavorText.textContent+=txt[i];
-        i++;
-        setTimeout(typeWriter, speed, txt, speed, i);
-    }
+    typingFlag = true;
+    let i = 0;
+    flavorText.textContent = '';
+    let intervalID = setInterval(()=>
+    {
+        if (i < txt.length){
+            flavorText.textContent+=txt[i];
+            i++;
+        }
+        else if (i ==txt.length || typingFlag == false) 
+        {
+            clearInterval(intervalID);
+            typingFlag = false
+        }
+    }, speed)
+    
 }
+
 
 function selectCard(e) {
     // If another card is already selected, unselect it
@@ -70,9 +85,6 @@ function getBotCard() {
 }
 
 function playRound() {
-    // Only allow this flavor text once per round
-    const options = {once:true};
-    botCardImage.addEventListener('click', ()=>typeWriter('No Peeking...'), options);
     //Stop listening for bell clicks when round starts
     bell.removeEventListener('click', handleBellClick)
     let botCard = getBotCard();
