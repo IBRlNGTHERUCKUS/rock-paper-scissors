@@ -10,6 +10,17 @@ bell.addEventListener('click', handleBellClick)
 let selectedCard = null;
 const ROUNDTIME = 3000 //ms
 
+function typeWriter(txt, speed = 100, i = 0) { //speed in ms
+    if (i == 0){
+        flavorText.textContent = '';
+    }
+    if (i < txt.length){
+        flavorText.textContent+=txt[i];
+        i++;
+        setTimeout(typeWriter, speed, txt, speed, i);
+    }
+}
+
 function selectCard(e) {
     // If another card is already selected, unselect it
     if (selectedCard) {
@@ -59,17 +70,17 @@ function playRound() {
     let userCard = selectedCard.id;
 
     if (userCard == botCard){
-        flavorText.textContent = 'Tie!';
+        typeWriter('Tie!');
     }
     else if (
         (userCard === "rock" && botCard === "scissors") || 
         (userCard === "paper" && botCard === "rock") ||
         (userCard === "scissors" && botCard === "paper")
         ) {
-            flavorText.textContent = 'You Win.';
+            typeWriter('You Win.');
         }
     else {
-        flavorText.textContent = 'You Lose.';
+        typeWriter('You Lose.');
     }
     // Unselect the card after each round
     selectedCard.classList.remove('selected');
