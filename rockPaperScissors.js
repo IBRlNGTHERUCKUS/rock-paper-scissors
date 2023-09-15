@@ -71,7 +71,7 @@ function playRound() {
     // Unselect the card after each round
     selectedCard.classList.remove('selected');
     selectedCard = null;
-    // 
+    // Flip card and reenable bell at same time
     setTimeout(flipCard, ROUNDTIME);
     setTimeout(()=>{bell.addEventListener('click', handleBellClick)}, ROUNDTIME)
 }
