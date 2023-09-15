@@ -2,7 +2,7 @@
     font-family: darkmode;
     src: url(./fonts/DarkmodeRegular-X35Oo.ttf);
 }
-
+ 
 body {
     background-image: url(./images/background.jpg);
     background-size: cover;
@@ -15,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    user-select: none;
    
 }
 

@@ -84,9 +84,15 @@ function getBotCard() {
     }
 }
 
-function playRound() {
-    //Stop listening for bell clicks when round starts
+function disableBell() {
     bell.removeEventListener('click', handleBellClick)
+}
+function enableBell() {
+    bell.addEventListener('click', handleBellClick)
+}
+
+function playRound() {
+    disableBell();
     let botCard = getBotCard();
     flipCard(botCard);
     let userCard = selectedCard.id;
@@ -114,5 +120,5 @@ function playRound() {
     selectedCard = null;
     // Flip card and reenable bell at same time
     setTimeout(flipCard, ROUNDTIME);
-    setTimeout(()=>{bell.addEventListener('click', handleBellClick)}, ROUNDTIME)
+    setTimeout(enableBell, ROUNDTIME)
 }
