@@ -47,9 +47,10 @@ function handleBellClick(e) {
         playRound(selectedCard);
     }
     else {
-        flavorText.textContent = 'You must choose...';
+        typeWriter('You must choose...');
     }
 }
+
 function flipCard(cardType = 'cardBack') {
     botCardImage.src = `./images/${cardType}.png`;
 }
@@ -69,6 +70,9 @@ function getBotCard() {
 }
 
 function playRound() {
+    // Only allow this flavor text once per round
+    const options = {once:true};
+    botCardImage.addEventListener('click', ()=>typeWriter('No Peeking...'), options);
     //Stop listening for bell clicks when round starts
     bell.removeEventListener('click', handleBellClick)
     let botCard = getBotCard();
