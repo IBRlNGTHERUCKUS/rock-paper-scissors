@@ -7,7 +7,7 @@ for (let card of userCards) {
 }
 bell.addEventListener('click', handleBellClick)
 let selectedCard = null;
-const CARDFLIPDELAY = 4000 //ms
+const ROUNDTIME = 3000 //ms
 
 function selectCard(e) {
     // If another card is already selected, unselect it
@@ -49,27 +49,29 @@ function getBotCard() {
 }
 
 function playRound() {
+    //Stop listening for bell clicks when round starts
+    bell.removeEventListener('click', handleBellClick)
     let botCard = getBotCard();
     flipCard(botCard);
     let userCard = selectedCard.id;
 
-    flavorText.innerHTML = `Bot Card: ${botCard}<br>User Card : ${userCard}`;
     if (userCard == botCard){
-        flavorText.innerHTML += '<br>Tie!';
+        flavorText.textContent = 'Tie!';
     }
     else if (
         (userCard === "rock" && botCard === "scissors") || 
         (userCard === "paper" && botCard === "rock") ||
         (userCard === "scissors" && botCard === "paper")
         ) {
-            flavorText.innerHTML += '<br>You Win.';
+            flavorText.textContent = 'You Win.';
         }
     else {
-        flavorText.innerHTML += '<br>You Lose.';
+        flavorText.textContent = 'You Lose.';
     }
     // Unselect the card after each round
     selectedCard.classList.remove('selected');
     selectedCard = null;
-    setTimeout(flipCard, 3000);
-
+    // 
+    setTimeout(flipCard, ROUNDTIME);
+    setTimeout(()=>{bell.addEventListener('click', handleBellClick)}, ROUNDTIME)
 }
