@@ -2,6 +2,7 @@ const userCards = document.querySelectorAll('.userCard');
 const bell = document.querySelector('.bell');
 const flavorText = document.querySelector('#flavorText');
 const botCardImage = document.querySelector('.botCard');
+const audio = document.querySelector('audio');
 for (let card of userCards) {
     card.addEventListener('click', selectCard);
 }
@@ -24,6 +25,8 @@ function selectCard(e) {
 }
 function handleBellClick(e) {
     if (selectedCard) {
+        audio.currentTime = 0;
+        audio.play();
         playRound(selectedCard);
     }
     else {

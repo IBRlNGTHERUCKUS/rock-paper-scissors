@@ -14,8 +14,13 @@ body {
 .middle { 
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex: 1;
+    background-color: rgba(84, 81, 81, 0.277);
+    backdrop-filter: blur(5px);
+    padding: 0px 100px;
 }
+
 
 .left {
     display: flex;
@@ -25,9 +30,12 @@ body {
 
 .card {
     border-radius: 7px;
+    box-shadow: 5px 5px 10px rgb(29, 23, 23);
+    opacity: 80%;
 }
 .bell {
     height: 1in;
+    filter:brightness(90%);
 }
 
 .cardContainer {
