@@ -3,14 +3,20 @@ const bell = document.querySelector('.bell');
 const flavorText = document.querySelector('#flavorText');
 const botCardImage = document.querySelector('.botCard');
 const audio = document.querySelector('audio');
+const userScore = document.querySelector('.userScore');
+let uScore = 0; // integer value representing points
+const botScore = document.querySelector('.botScore');
+let bScore = 0; // integer value representing points
+
 for (let card of userCards) {
     card.addEventListener('click', selectCard);
 }
 bell.addEventListener('click', handleBellClick)
 let selectedCard = null;
 const ROUNDTIME = 3000 //ms
+const TYPEWRITERSPEED = 120; //ms
 
-function typeWriter(txt, speed = 100, i = 0) { //speed in ms
+function typeWriter(txt, speed = TYPEWRITERSPEED, i = 0) { //speed in ms
     if (i == 0){
         flavorText.textContent = '';
     }
@@ -78,9 +84,14 @@ function playRound() {
         (userCard === "scissors" && botCard === "paper")
         ) {
             typeWriter('You Win.');
+            uScore++;
+            userScore.textContent = `You: ${uScore}`;
         }
     else {
         typeWriter('You Lose.');
+        bScore++;
+        botScore.textContent = `It: ${bScore}`;
+
     }
     // Unselect the card after each round
     selectedCard.classList.remove('selected');

@@ -1,9 +1,16 @@
+@font-face {
+    font-family: darkmode;
+    src: url(./fonts/DarkmodeRegular-X35Oo.ttf);
+}
+
 body {
     background-image: url(./images/background.jpg);
     background-size: cover;
     background-position: center center;
     height: 100vh;
     margin: 0;
+    font-family: darkmode;
+    font-size: 26px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -32,6 +39,7 @@ body {
     border-radius: 7px;
     box-shadow: 5px 5px 10px rgb(29, 23, 23);
     opacity: 80%;
+   
 }
 .bell {
     height: 1in;
@@ -49,7 +57,8 @@ body {
 
 #flavorText {
     text-align: center;
-    align-self: center
+    align-self: center;
+    font-size: 42px;
 }
 
 .selected {
