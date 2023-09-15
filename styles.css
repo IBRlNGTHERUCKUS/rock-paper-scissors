@@ -10,7 +10,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: darkmode;
-    font-size: 2em;
+    font-size: 2rem;
     color: white;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ img {
 
 .middle { 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex: 1;
     background-color: rgba(84, 81, 81, 0.277);
@@ -40,6 +40,13 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#flavorText {
+    text-align: center;
+    align-self: center;
+    font-size: 5rem;
+    width: 50%;
 }
 
 .cardWrapper {
@@ -63,12 +70,6 @@ img {
     gap: 30px;
     flex: 2;
     height: 20%;
-}
-
-#flavorText {
-    text-align: center;
-    align-self: center;
-    font-size: 2.5em;
 }
 
 .selected {
