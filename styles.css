@@ -3,13 +3,23 @@ body {
     color: white;
 }
 
+.middle {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .card {
     height: 40vh;
     border-radius: 7px;
 }
-.bell img {
+.bell {
     height: 1in;
-    
 }
 
 .cardContainer {
@@ -19,14 +29,8 @@ body {
     gap: 30px;
 }
 
-.middle {
-    display:flex;
-}
-
 #flavorText {
     text-align: center;
-    margin-right: 50vw;
-    margin-left: auto;
     align-self: center
 }
 
