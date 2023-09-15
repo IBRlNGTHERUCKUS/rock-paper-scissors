@@ -2,6 +2,7 @@
 <html lang = "eng">
     <head>
         <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Rock Paper Scissors</title>
         <script src = "rockPaperScissors.js" defer></script>
         <link href="./styles.css" rel = 'stylesheet'>
@@ -25,9 +26,15 @@
         </div>
 
         <div class="cardContainer">
-            <img class = 'card userCard' id = 'rock' src = './images/rock.png' alt = 'A playing card with a rock on it'  draggable = false>
-            <img class = 'card userCard' id = 'paper' src = './images/paper.png' alt = 'A playing card with a paper on it'  draggable = false>
-            <img class = 'card userCard' id = 'scissors' src = './images/scissors.png' alt = 'A playing card with a scissors on it'  draggable = false>
+            <div class="cardWrapper">
+                <img class = 'card userCard' id = 'rock' src = './images/rock.png' alt = 'A playing card with a rock on it'  draggable = false>
+            </div>
+            <div class="cardWrapper">
+                <img class = 'card userCard' id = 'paper' src = './images/paper.png' alt = 'A playing card with a paper on it'  draggable = false>
+            </div>
+            <div class="cardWrapper">
+                <img class = 'card userCard' id = 'scissors' src = './images/scissors.png' alt = 'A playing card with a scissors on it'  draggable = false>
+            </div>
         </div>
 
         <audio src = './audio/bell.mp3'></audio>

@@ -2,7 +2,7 @@
     font-family: darkmode;
     src: url(./fonts/DarkmodeRegular-X35Oo.ttf);
 }
- 
+
 body {
     background-image: url(./images/background.jpg);
     background-size: cover;
@@ -10,13 +10,19 @@ body {
     height: 100vh;
     margin: 0;
     font-family: darkmode;
-    font-size: 26px;
+    font-size: 2em;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     user-select: none;
    
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .middle { 
@@ -26,7 +32,7 @@ body {
     flex: 1;
     background-color: rgba(84, 81, 81, 0.277);
     backdrop-filter: blur(5px);
-    padding: 0px 100px;
+    padding: 0px 10px;
 }
 
 
@@ -36,6 +42,9 @@ body {
     align-items: center;
 }
 
+.cardWrapper {
+    flex: 1;
+}
 .card {
     border-radius: 7px;
     box-shadow: 5px 5px 10px rgb(29, 23, 23);
@@ -59,7 +68,7 @@ body {
 #flavorText {
     text-align: center;
     align-self: center;
-    font-size: 42px;
+    font-size: 2.5em;
 }
 
 .selected {
