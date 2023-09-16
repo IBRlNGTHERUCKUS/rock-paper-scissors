@@ -10,7 +10,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: darkmode;
-    font-size: 2rem;
+    font-size: 4vh;
     color: white;
     display: flex;
     flex-direction: column;
@@ -45,13 +45,11 @@ img {
 #flavorText {
     text-align: center;
     align-self: center;
-    font-size: 5rem;
-    width: 50%;
+    font-size: 6vh;
+    width: 50%
+    
 }
 
-.cardWrapper {
-    flex: 1;
-}
 .card {
     border-radius: 7px;
     box-shadow: 5px 5px 10px rgb(29, 23, 23);
